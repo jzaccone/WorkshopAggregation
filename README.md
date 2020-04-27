@@ -1,24 +1,37 @@
-# Docker
-Series of labs and instructions to introduce you to containers and Docker. Learn to run a container, inspect a container and understand the isolation of processes, create a Dockerfile, build an image from a Dockerfile and understand layers, tag and push images to a registry, scale and update containers, and more.
+# Workshop Aggregation Script
+Use the `aggregateWorkshop.sh` script in this repo to combine multiple gitbooks on IBM Developer gitbook account into a single gitbook.
 
-To view the Docker workshop online, go to:
-* <https://ibm-developer.gitbook.io/docker/>.
+# Steps
+1) Fork this repo. Rename the repo to the name of your new aggregate workshop. This project provides the template and script to populate the content for your new workshop
 
-To view the Docker workshop in Github, go to:
-* [workshop/README.md](workshop/README.md).
+2) Gather the names of the gitbooks an variants that you would like to include in your aggregate. 
+TODO put input in input.txt 
+TODO use MattsScript.sh as an agenda builder
+TODO pull list of workshop options via gitbook API
+
+3) Create a new space on gitbook 
+TODO automate using gitbook CLI
+
+4) Manually inspect and edit 
+
+Gitbook 
+* <https://ibm-developer.gitbook.io/>.
 
 This repository has the following structure:
 ```ini
-- workshop (workshop labs)
 |_ .gitbook (images)
 |_ <language> (localization support) 
-  |_ <folder-n> (workshop labs)
-    |_README.md (steps for labs in Markdown)
-  |_ README.md (gitbook home page)
-  |_ SUMMARY.md (table of contents)
-.gitbook.yaml (GitBook read-only instructions)
-.travis.yaml (runs markdownlint by default)
-README.md (GitHub.com README)
+|_ README.md (gitbook home page)
+|_ SUMMARY.md (table of contents)
+
+|_ docker 101 
+  |_ README.md
+  |_ lab N (workshop labs)
+    |_ README.md
+|_ kubernetes 101 
+  |_ README.md
+  |_ lab N (workshop labs)
+    |_ README.md
 ```
 
 ## Markdown lint tool
