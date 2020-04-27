@@ -19,8 +19,8 @@ echo "* [${workshopName}](${workshopName}/README.md)" >> workshop/README.md
 
 for lab in `ls -d workshop/docker101/*/`; do
   labName=`basename $lab`
-  echo "    * [$lab]($lab/README.md)" >> workshop/Summary.md 
-  echo "    * [$lab]($lab/README.md)" >> workshop/README.md
+  echo "    * [$lab]($labName/README.md)" >> workshop/Summary.md 
+  echo "    * [$lab]($labName/README.md)" >> workshop/README.md
   echo "Lab -> `basename $lab`"
 done
 
