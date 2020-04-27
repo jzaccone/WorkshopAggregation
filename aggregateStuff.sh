@@ -1,27 +1,29 @@
 #!/bin/bash
 
-#Inputs - workshop repository and variant (branch)
-export workshop1="https://github.com/IBM/docker101"
-#export branch="master"
-
 rm -rf tempClones
 mkdir tempClones
-
 rm -rf workshop/*
 
-workshopName=`basename $workshop1`
+for repo in `cat agenda.txt`
+do
+        echo "adding ${repo} to agenda"
 
-git clone $workshop1 tempClones/$workshopName
-mv tempClones/$workshopName/workshop workshop/$workshopName
 
-echo "* [${workshopName}](${workshopName}/README.md)" >> workshop/Summary.md
-echo "* [${workshopName}](${workshopName}/README.md)" >> workshop/README.md
+	workshopName=`basename $repo`
 
-for lab in `ls -d workshop/docker101/*/`; do
-  labName=`basename $lab`
-  echo "    * [$workshopName/$labName]($workshopName/$labName/README.md)" >> workshop/Summary.md 
-  echo "    * [$workshopName/$labName]($workshopName/$labName/README.md)" >> workshop/README.md
-  echo "Lab -> `basename $lab`"
+	git clone $repo tempClones/$workshopName
+	mv tempClones/$workshopName/workshop workshop/$workshopName
+
+	echo "* [${workshopName}](${workshopName}/README.md)" >> workshop/Summary.md
+	echo "* [${workshopName}](${workshopName}/README.md)" >> workshop/README.md
+
+	for lab in `ls -d workshop/$workshopName/*/`; do
+		labName=`basename $lab`
+		echo "    * [$workshopName/$labName]($workshopName/$labName/README.md)" >> workshop/Summary.md 
+		echo "    * [$workshopName/$labName]($workshopName/$labName/README.md)" >> workshop/README.md
+		echo "Lab -> `basename $lab`"
+	done
+
 done
 
 
