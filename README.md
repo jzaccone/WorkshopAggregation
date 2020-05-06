@@ -1,37 +1,52 @@
 # Workshop Aggregation Script
 Use the `aggregateWorkshop.sh` script in this repo to combine multiple gitbooks on IBM Developer gitbook account into a single gitbook.
 
-# Steps
-1) Fork this repo. Rename the repo to the name of your new aggregate workshop. This project provides the template and script to populate the content for your new workshop
+# About
+This repo is two things
+1) It contains a template that is the contains all the files you need for a gitbook
+2) It contains a script `aggregateStuff.sh` that 
+  a) Reference other repos listed in `agenda.md` and pull them into a generated folder `workshop/generatedContent`
+  b) Create a list of generated content links at the `workshop/generatedContentLinks.md` level which can be copied into the main part of the workshop
 
-2) Gather the names of the gitbooks an variants that you would like to include in your aggregate. 
-TODO put input in input.txt 
-TODO use MattsScript.sh as an agenda builder
-TODO pull list of workshop options via gitbook API
+# Steps - Create New Aggregate
+1) Fork the repo. Rename the repo to the name of your new aggregate workshop. This project provides the template and script to populate the content for your new workshop
 
-3) Create a new space on gitbook 
+2) Gather the links to the repos you want to pull in gitbooks into `agenda.txt`
+TODO add support for variants
+
+3) Create a new space on gitbook: https://ibm-developer.gitbook.io/
 TODO automate using gitbook CLI
 
-4) Manually inspect and edit 
+4) Manually edit `workshop/README.md` and `workshop/Summary.md` and other workshop files as needed to customize experience for this end-to-end workshop. 
 
-Gitbook 
-* <https://ibm-developer.gitbook.io/>.
+# Steps - Populate Aggregate (first time or update)
 
-This repository has the following structure:
+This will wipe out everything in the `generatedContent` folder and repopulate based on links in `agenda.txt`. It won't touch any other files in the workshop folder.
+
+```sh
+./aggregateStuff.sh
+```
+
+The standard gitbook structure is so:
 ```ini
-|_ .gitbook (images)
-|_ <language> (localization support) 
-|_ README.md (gitbook home page)
-|_ SUMMARY.md (table of contents)
+.gitbook.yaml (tells GitBook to only read the stuff in 'workshop')
+.travis.yaml (runs markdownlint by default)
+README.md (only used for GitHub.com)
+- data (any data (CSV, JSON, etc files) to be used)
+- notebooks (any Jupyter notebooks can go here)
+- src (any application source code can go here)
+- workshop (this is where the workshop is documented)
+|_ .gitbook (images should go here)
+|_ <folder-n> (these are exercises for the workshop that you manually add)
+  |_README.md (the steps for the exercise, in Markdown)
+|_ README.md (this will appear on the gitbook home page)
+|_ SUMMARY.md (this dictates the Table of Contents)
+```
 
-|_ docker 101 
-  |_ README.md
-  |_ lab N (workshop labs)
-    |_ README.md
-|_ kubernetes 101 
-  |_ README.md
-  |_ lab N (workshop labs)
-    |_ README.md
+In additional to those files, the script adds to the `workshop` folder:
+|_ generatedContent (generated content DO NOT EDIT)
+  |_<folder-n> (these are exercises for the workshop that are added by the script)
+|_ generatedLinks.md
 ```
 
 ## Markdown lint tool
