@@ -15,11 +15,11 @@ do
 	git clone $repo tempClones/$workshopName
 	mv tempClones/$workshopName/workshop workshop/generatedContent/$workshopName
 
-	echo "* [${workshopName}](${workshopName}/README.md)" >> workshop/generatedContentLinks.md
+	echo "* generatedContent/[${workshopName}](${workshopName}/README.md)" >> workshop/generatedContentLinks.md
 
 	for lab in `ls -d workshop/generatedContent/$workshopName/*/`; do
 		labName=`basename $lab`
-		echo "    * [$workshopName/$labName]($workshopName/$labName/README.md)" >> workshop/generatedContentLinks.md 
+		echo "    * [generatedContent/$workshopName/$labName](generatedContent/$workshopName/$labName/README.md)" >> workshop/generatedContentLinks.md 
 		echo "Lab -> `basename $lab`"
 	done
 

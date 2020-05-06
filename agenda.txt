@@ -1,4 +1,3 @@
 https://github.com/IBM/docker101
-https://github.com/IBM/openshift101
 
 
