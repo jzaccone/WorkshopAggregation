@@ -1,5 +1,0 @@
-* generatedContent/[docker101](docker101/README.md)
-    * [generatedContent/docker101/lab-0](generatedContent/docker101/lab-0/README.md)
-    * [generatedContent/docker101/lab-1](generatedContent/docker101/lab-1/README.md)
-    * [generatedContent/docker101/lab-2](generatedContent/docker101/lab-2/README.md)
-    * [generatedContent/docker101/lab-3](generatedContent/docker101/lab-3/README.md)
