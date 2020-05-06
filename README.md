@@ -4,7 +4,7 @@ Use the `aggregateWorkshop.sh` script in this repo to combine multiple gitbooks 
 # About
 This repo is two things
 1) It contains a template that is the contains all the files you need for a gitbook
-2) It contains a script `aggregateStuff.sh` that 
+2) It contains a script `aggregateWorkshop.sh` that 
   a) Reference other repos listed in `agenda.md` and pull them into a generated folder `workshop/generatedContent`
   b) Create a list of generated content links at the `workshop/generatedContentLinks.md` level which can be copied into the main part of the workshop
 
@@ -24,7 +24,7 @@ TODO automate using gitbook CLI
 This will wipe out everything in the `generatedContent` folder and repopulate based on links in `agenda.txt`. It won't touch any other files in the workshop
 
 ```sh
-./aggregateStuff.sh
+./aggregateWorkshop.sh
 ```
 
 The standard gitbook structure is so:
