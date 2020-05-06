@@ -21,7 +21,7 @@ TODO automate using gitbook CLI
 
 # Steps - Populate Aggregate (first time or update)
 
-This will wipe out everything in the `generatedContent` folder and repopulate based on links in `agenda.txt`. It won't touch any other files in the workshop folder.
+This will wipe out everything in the `generatedContent` folder and repopulate based on links in `agenda.txt`. It won't touch any other files in the workshop
 
 ```sh
 ./aggregateStuff.sh
@@ -44,6 +44,7 @@ README.md (only used for GitHub.com)
 ```
 
 In additional to those files, the script adds to the `workshop` folder:
+```ini
 |_ generatedContent (generated content DO NOT EDIT)
   |_<folder-n> (these are exercises for the workshop that are added by the script)
 |_ generatedLinks.md
